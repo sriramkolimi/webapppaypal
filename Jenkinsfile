@@ -1,7 +1,5 @@
 pipeline {
   agent any
-  tools{
-    maven 'maven for my pc'
   }  
   parameters{
     choice (name: 'VERSION',choices: ['1.1.0','1.2.0','1.3.0'],description: '')
@@ -11,7 +9,6 @@ pipeline {
     stage("build"){
       steps{
         echo 'building the application'
-        sh "mvn install"
       }
     }
     stage("test"){
